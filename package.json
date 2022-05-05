@@ -9,7 +9,8 @@
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
-    "vue": "^3.2.31"
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.15"
   },
   "devDependencies": {
     "@types/node": "^16.11.26",
