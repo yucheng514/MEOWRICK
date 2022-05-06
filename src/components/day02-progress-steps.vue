@@ -1,5 +1,6 @@
 <script>
 export default {
+    name: 'day02-progress-steps',
     mounted() {
         const progress = document.getElementById('progress')
         const prev = document.getElementById('prev')

@@ -1,5 +1,6 @@
 <script lang="ts">
 export default {
+  name:'day01-expanding-cards',
   data() {
     return {
 
