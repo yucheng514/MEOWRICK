@@ -96,6 +96,7 @@ body {
   margin: 10px;
   position: relative;
   -webkit-transition: all 700ms ease-in;
+  transition: all 700ms ease-in;
 }
 
 .panel h3 {
