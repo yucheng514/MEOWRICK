@@ -1,28 +1,28 @@
 function getModules() {
-  const modules = import.meta.glob("../components/*.vue");
-  return modules;
+    const modules = import.meta.glob("../components/*.vue");
+    return modules;
 }
 function getComponents() {
-  const components = import.meta.globEager("../components/*.vue");
-  return components;
+    const components = import.meta.globEager("../components/*.vue");
+    return components;
 }
 export const vueRouters = function () {
-  let routerList = [];
+    let routerList = [];
 
-  const modules = getModules();
-  const components = getComponents();
-  Object.keys(modules).forEach((key) => {
-    const viewSrc = components[key];
-    const file = viewSrc.default;
-    //  if (!file.isRouter) return
-    // 首字母转小写 letterToLowerCase 首字母转大写 letterToUpperCase
-    routerList.push({
-      path: `/${file.name}`,
-      name: `${file.name}`,
-      component: modules[key],
+    const modules = getModules();
+    const components = getComponents();
+    Object.keys(modules).forEach((key) => {
+        const viewSrc = components[key];
+        const file = viewSrc.default;
+        //  if (!file.isRouter) return
+        // 首字母转小写 letterToLowerCase 首字母转大写 letterToUpperCase
+        routerList.push({
+            path: `/${file.name}`,
+            name: `${file.name}`,
+            component: modules[key],
+        });
     });
-  });
-  return routerList;
+    return routerList;
 };
 
 // export const vueRouters = function (router) {
