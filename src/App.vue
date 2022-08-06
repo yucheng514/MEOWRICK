@@ -9,6 +9,7 @@ export default {
                     name: "day03-rotating-nav-animation",
                     to: "day03-rotating-nav-animation",
                 },
+                { name: "day04-hidden-search", to: "day04-hidden-search" },
             ],
         };
     },
