@@ -14,13 +14,15 @@ export const vueRouters = function () {
     Object.keys(modules).forEach((key) => {
         const viewSrc = components[key];
         const file = viewSrc.default;
+        console.log(file)
         //  if (!file.isRouter) return
         // 首字母转小写 letterToLowerCase 首字母转大写 letterToUpperCase
         routerList.push({
-            path: `/${file.name}`,
-            name: `${file.name}`,
+            path: `/${file.name || file.__name}`, // 用 setup 的 vue 文件没有 name 属性，只有 __name
+            name: `${file.name || file.__name}`,
             component: modules[key],
         });
+        // console.log(routerList)
     });
     return routerList;
 };

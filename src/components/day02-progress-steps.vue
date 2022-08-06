@@ -68,7 +68,7 @@ export default {
         <button class="btn" id="next">Next</button>
     </div>
 </template>
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 :root {
