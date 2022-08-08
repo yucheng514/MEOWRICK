@@ -3,7 +3,8 @@ function getModules() {
     return modules;
 }
 function getComponents() {
-    const components = import.meta.globEager("../components/*.vue");
+    // const components = import.meta.globEager("../components/*.vue");
+    const components = import.meta.glob("../components/*.vue", { eager: true });
     return components;
 }
 export const vueRouters = function () {
@@ -14,7 +15,6 @@ export const vueRouters = function () {
     Object.keys(modules).forEach((key) => {
         const viewSrc = components[key];
         const file = viewSrc.default;
-        console.log(file)
         //  if (!file.isRouter) return
         // 首字母转小写 letterToLowerCase 首字母转大写 letterToUpperCase
         routerList.push({

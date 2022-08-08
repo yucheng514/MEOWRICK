@@ -1,19 +1,24 @@
-<script>
-export default {
-    data() {
-        return {
-            cpns: [
-                { name: "day01-expanding-cards", to: "/day01-expanding-cards" },
-                { name: "day02-progress-steps", to: "day02-progress-steps" },
-                {
-                    name: "day03-rotating-nav-animation",
-                    to: "day03-rotating-nav-animation",
-                },
-                { name: "day04-hidden-search", to: "day04-hidden-search" },
-            ],
-        };
-    },
-};
+<script setup lang="ts">
+import { onMounted, ref } from "vue";
+interface cpnsProp {
+    name: string;
+    to: string;
+}
+const cpns = ref<cpnsProp[]>([{ name: "index", to: "/" }]); // todo 首页
+
+onMounted(() => {
+    const modules = import.meta.glob("./components/*.vue");
+    const components = import.meta.glob("./components/*.vue", { eager: true });
+    Object.keys(modules).forEach((key) => {
+        const viewSrc = components[key];
+        // @ts-ignore
+        const file = viewSrc.default;
+        cpns.value.push({
+            name: `${file.name || file.__name}`,
+            to: `${file.name || file.__name}`,
+        });
+    });
+});
 </script>
 
 <template>
