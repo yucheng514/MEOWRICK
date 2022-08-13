@@ -1,10 +1,10 @@
 function getModules() {
-    const modules = import.meta.glob("../components/*.vue");
+    const modules = import.meta.glob("@/5050/*.vue");
     return modules;
 }
 function getComponents() {
     // const components = import.meta.globEager("../components/*.vue");
-    const components = import.meta.glob("../components/*.vue", { eager: true });
+    const components = import.meta.glob("@/5050/*.vue", { eager: true });
     return components;
 }
 export const vueRouters = function () {

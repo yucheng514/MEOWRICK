@@ -2,30 +2,18 @@ import { createWebHistory, createRouter } from "vue-router";
 // import expandingCards from "../components/day01-expanding-cards.vue";
 // import progressSteps from "../components/day02-progress-steps.vue";
 import { vueRouters } from "./5050";
+import index from "@/components/index.vue";
+
 const routes = [
     {
         path: "/",
-        redirect: "/day01-expanding-cards",
+        // redirect: "/day01-expanding-cards",
+        name: "index",
+        component: index,
     },
     ...vueRouters(),
 ];
-
-// const routes = [
-//   {
-//     path: "/",
-//     redirect: "/day01-expanding-cards",
-//   },
-//   {
-//     path: "/day01-expanding-cards",
-//     name: "day01-expanding-cards",
-//     component: expandingCards,
-//   },
-//   {
-//     path: "/day02-progress-steps",
-//     name: "day02-progress-steps",
-//     component: progressSteps,
-//   },
-// ];
+// console.log(routes);
 
 const router = createRouter({
     history: createWebHistory(),
