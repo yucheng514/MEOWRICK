@@ -1,5 +1,5 @@
 <template>
-    <div flex justify-evenly items-center h-full>
+    <div flex justify-evenly items-center flex-wrap h-full>
         <!-- 这个路由应该怎么设置呢？ -->
         <router-link v-for="item in cpns" :to="item.to">{{
             item.name
@@ -16,8 +16,8 @@ interface cpnsProp {
 const cpns = ref<cpnsProp[]>([{ name: "index", to: "/" }]); // todo 首页
 
 onMounted(() => {
-    const modules = import.meta.glob("@/5050/*.vue");
-    const components = import.meta.glob("@/5050/*.vue", { eager: true });
+    const modules = import.meta.glob("@/components/5050/*.vue");
+    const components = import.meta.glob("@/components/5050/*.vue", { eager: true });
     Object.keys(modules).forEach((key) => {
         const viewSrc = components[key];
         // @ts-ignore
